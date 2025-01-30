@@ -2,47 +2,62 @@
 <html lang="en">
   <head>
     <title>Arrays and Loops</title>
-    <style>
-     
-    </style>
   </head>
   <body>
-   
-    
     <script>
-      /*
-      const myArray = [10, 20, 30];
-      console.log(myArray);
+      console.log("Page is loading...");
 
-      console.log(myArray[1]); 
-      myArray[0] = 99;
-      console.log(myArray);
+      const array1 = [1, 2, 3];
+      console.log("array1 initialized:", array1);
+      const array2 = array1.slice();
+      console.log("array2 after slice:", array2);
+      array2.push(4);
+      console.log("array2 after push:", array2);
 
-      [1, 'hello' , true, {name:'socks'}, [1, 2]]
+      const [firstvalue, secondValue, ...rest] = [1, 2, 3];
+      console.log("Destructured values:", firstvalue, secondValue, rest);
 
-      console.log(typeof [1, 2]);
-      console.log(Array.isArray([1, 2]));
-
-      console.log(myArray.length);
-
-      myArray.push(100);
-      console.log(myArray);
-
-      myArray.splice(0, 1,);
-      console.log(myArray);
-      */
-
-      let i = 1;
-
-      while (i <= 5 ) {
-        console.log(i);
-        i = + 1;
+      // Comment out loops for now
+      for (let i = 1; i <= 10; i++) {
+      if (i % 3 === 0) {
+        continue;  // Skip numbers divisible by 3
       }
-
-      for (let i = 1; i <= 5; i++) {
-        console.log(i);
-
+      console.log("i in for loop:", i);
+      if (i === 8) {
+        console.log("Breaking at i =", i);
+        break;  // Break the loop at i = 8
       }
+    }
+
+    let i = 1; 
+    while(i <= 10) {
+      console.log("i in while loop:", i);
+      if (i % 3 === 0) {
+        i++;  // Increment i to avoid infinite loop
+        continue;  // Skip the second log if i is divisible by 3
+      }
+      console.log(i);
+      i++;  // Increment i for all other cases
+    }
+
+
+      console.log("Calling doubleArray function...");
+      function doubleArray(nums) {
+        const numsDoubled = [];
+        for (let i = 0; i < nums.length; i++) {
+          const num = nums[i];
+          console.log("Current num:", num);
+          if (num === 0) {
+            console.log("Skipping zero");
+            continue;
+          }
+          numsDoubled.push(num * 2);
+        }
+        console.log("Double array result:", numsDoubled);
+        return numsDoubled;
+      }
+      console.log(doubleArray([1, 1, 3]));
+      console.log(doubleArray([2, 2, 5, 0, 5]));
     </script>
   </body>
 </html>
